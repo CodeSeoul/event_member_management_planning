@@ -23,6 +23,7 @@ Do note that the key features may change as the system matures. This is intended
 ## Detailed Requirements
 All requirements are malleable. Pull requests and discussion via issues or [our Discord](https://discord.gg/HFknCs8) are always welcome. Also, we are not perfect. If you find something wrong or believe something could be done better, we'd love a pull request. That includes the manner in which we're even defining requirements and structuring this repository.
 
+* [High-Level Feature List](high_level_feature_list.md)
 * [Data Model](data_model.md)
 * [Technical Architecture](technical_architecture.md)
 * [User Personas](user_personas.md)

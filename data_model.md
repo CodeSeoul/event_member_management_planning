@@ -15,13 +15,39 @@ All entities should track timestamps for when they were created and when they we
 ## Event
 An event entity represents a community event. 
 
-An event can have a title (TODO: determine maximum length). It can also have a detailed description. An event starts at a specific date and time, and it lasts for some duration. An event can optionally have an image.
+An event can have a title (TODO: determine maximum length). It can also have a detailed description. An event starts at a specific date and time, and it lasts for some duration. An event can optionally have an image. 
+
+An event has an [Event State](#event-state), indicating the current status of the event.
+
+An event can belong to zero or more [Event Schedule](#event-schedule)s. If an event has an event schedule, it should be posted according to the event schedule configuration.
 
 An event can be online or offline. If offline, it should include a [Venue](#venue). If online, it should include a link to the online attendance platform.
 
 An event can optionally belong to a [Series](#series).
 
+An event can have zero or many [Event Tags](#event-tag).
+
 [Members](#member) can [RSVP](#rsvp) to an event. A member cannot have more than 1 RSVP for an event.
+
+[Members](#member) can vote on proposed events via an [Event Vote](#event-vote). An event can have zero or more event votes.
+
+## Event Tag
+An event tag entity represents a tag for connecting related [Events](#event). An event tag just has a name (TODO: max length).
+
+An event tag can belong to many events.
+
+## Event State
+An event state entity represents the status of an [Event](#event). It indicates if the event is proposed by a user, in draft by an admin, posted, or in the past.
+
+## Event Schedule
+An event schedule entity represents a repeating schedule that an [Event](#event) follows. 
+
+The event schedule should support day of week and Nth day of month configurations (e.g. first Friday of the month). Quarterly and annually are infrequent enough that organizers should handle them manually. Events requiring more complicated repetition than this can use a combination of multiple event schedules.
+
+An event schedule should also include a posting schedule: how far in advance an event should be posted. Note that when cross-posting to SNS, services like Meetup support ongoing schedules, so this should be accounted for.
+
+## Event Vote
+An event vote entity represents a [Member](#member)'s support for a user-submitted proposed [Event](#event). It only needs to track the member, event, and timestamp of the vote.
 
 ## Series
 A series entity represents a collection of related and/or sequential [Events](#event). A series also has a name (TODO: max length). For now, that's all.
@@ -32,7 +58,7 @@ An RSVP entity represents a [member](#member)'s intent to attend or not attend a
 ## Venue
 A venue entity represents a physical location where an offline [event](#event) takes place. A venue has a name and address. Later, we may store information like the bookable hours and dates, but that can wait until a later iteration. 
 
-A venue can also be tracked via several [map services](#map-service). When a venue is related to a map service, the relationship should include a direct link to viewing the venue on the map service.
+A venue can also be tracked via several [map services](#map-service). When a venue is related to a map service, the relationship should include a direct link to viewing the venue on the map service. Additionally, since map services don't always match addresses, the link between a venue and map service should alow overriding the official venue address.
 
 ## Map Service
 A map service entity represents an online map service like Google Maps or Naver Maps. Map services are used for easily sharing map links of [venues](#venue) for users' preferred map service.
