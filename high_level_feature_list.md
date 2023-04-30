@@ -9,6 +9,8 @@ Here's a short-form list of features to cover things until more detailed use cas
 * When an admin posts an event, they should have the option to post to one or more of Meetup, Facebook, and LinkedIn.
 * When an admin edits or deletes a posted event, the event should also be updated on the corresponding SNS services.
 * When an admin posts an event, it should be announced in the `#announcements` channel in Discord.
+* When posting an event, an admin can mark if the event should be a livestream. If the event is marked as a livestream, the system should schedule a YouTube livestream for the event.
+* Admins should be able to link event video recordings of events after the event has completed.
 * Admins should be able to see how many people have RSVPed to an event on each SNS service.
 * Admins should be able to see comments from the various SNS services.
 * Users should be able to see a list of the events happening next in time.
