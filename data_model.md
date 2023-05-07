@@ -23,6 +23,8 @@ An event can belong to zero or more [Event Schedule](#event-schedule)s. If an ev
 
 An event can be online or offline. If offline, it should include a [Venue](#venue). If online, it should include a link to the online attendance platform.
 
+An event can optionally have an [Event Video](#event-video), which can be either an online stream of the event or a recording of the event.
+
 An event can optionally belong to a [Series](#series).
 
 An event can have zero or many [Event Tags](#event-tag).
@@ -48,6 +50,11 @@ An event schedule should also include a posting schedule: how far in advance an 
 
 ## Event Vote
 An event vote entity represents a [Member](#member)'s support for a user-submitted proposed [Event](#event). It only needs to track the member, event, and timestamp of the vote.
+
+# Event Video
+An event video entity represents a video of an [Event](#event). The video can be either a live stream or a recording of the event posted afterwards. The entity should include a link to the video and whether the video is a livestream or a recording. 
+
+The entity should reference the event it belongs to.
 
 ## Series
 A series entity represents a collection of related and/or sequential [Events](#event). A series also has a name (TODO: max length). For now, that's all.
