@@ -33,6 +33,8 @@ An event can have zero or many [Event Tags](#event-tag).
 
 [Members](#member) can vote on proposed events via an [Event Vote](#event-vote). An event can have zero or more event votes.
 
+An event must have an [Event Type](#event-type) that specifies what kind of experience attendees can have at the event.
+
 ## Event Tag
 An event tag entity represents a tag for connecting related [Events](#event). An event tag just has a name (TODO: max length).
 
@@ -55,6 +57,18 @@ An event vote entity represents a [Member](#member)'s support for a user-submitt
 An event video entity represents a video of an [Event](#event). The video can be either a live stream or a recording of the event posted afterwards. The entity should include a link to the video and whether the video is a livestream or a recording. 
 
 The entity should reference the event it belongs to.
+
+## Event Type
+
+An event type represents what kind of experience attendees can have at an event. This is effectively a lookup table. The current types of events follow:
+
+* Presentation - There will be a presenter that will present on some topic and have discussion.
+* Workshop - A presenter will introduce some topic and have some hands-on practice for attendees.
+* Panel - A group of panelists will discuss topics and answer attendees' questions.
+* Meeting - CodeSeoul leadership and additional attendees will discuss the group and future plans for it.
+* Coworking - Attendees will work on projects individually or together. There may or may not be a unified goal, technology, or theme.
+* Social - Attendees will meet to network and socialize. Usually, there is no strict agenda or objective.
+* Study Group - An organizer will provide structure and guidance, and attendees will study a topic together.
 
 ## Series
 A series entity represents a collection of related and/or sequential [Events](#event). A series also has a name (TODO: max length). For now, that's all.
